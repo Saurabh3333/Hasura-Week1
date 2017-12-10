@@ -25,3 +25,7 @@
 **Notes:**
 1. Use a browser supporting JavaScript.
 2. Don't use proxy or VPN during `git clone` and `npm install`.
+
+**Important Links**
+- [Hasura](https://hasura.io)
+- [Node.js](https://nodejs.org/)

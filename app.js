@@ -51,7 +51,12 @@ app.get('/setcookie/:name/:age', (req, res) => {
 });
 
 app.get('/getcookies', (req, res) => {
-	res.send("Name: " + req.cookies.name + "<br>Age: " + req.cookies.age);
+	res.send("Name: " + req.cookies.name + "<br>Age: " + req.cookies.age + "<br><a href = '/deletecookie'> Delete Cookie</a>");
+});
+
+app.get('/deletecookie', (req, res) => {
+	res.clearCookie('name');
+	res.clearCookie('age').send("Cookie cleared");
 });
 
 app.listen(8080, () => {

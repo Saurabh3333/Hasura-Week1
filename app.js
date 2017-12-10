@@ -2,12 +2,15 @@ const express = require('express');
 const cookieParser = require('cookie-parser');
 var path = require('path');
 var request = require("request");
+var bodyParser = require('body-parser');
 
 const app = express();
 app.use(cookieParser());
+app.use(bodyParser());
 app.use('/public', express.static(path.join(__dirname, 'public')));
 
 app.set('view engine', 'ejs');
+var urlencodedParser = bodyParser.urlencoded({ extended: false });
 
 app.get('/', (req, res) => {
    res.send("Hello World - Saurabh");
@@ -57,6 +60,15 @@ app.get('/getcookies', (req, res) => {
 app.get('/deletecookie', (req, res) => {
 	res.clearCookie('name');
 	res.clearCookie('age').send("Cookie cleared");
+});
+
+app.get('/input', (req, res) => {
+	res.render('input');
+});
+
+app.post('/input', urlencodedParser, (req, res) => {
+	console.log("The entered value is " + req.body.value);
+	res.render('input');
 });
 
 app.listen(8080, () => {

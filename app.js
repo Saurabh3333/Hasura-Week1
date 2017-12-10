@@ -43,6 +43,14 @@ app.get('/authors', (req, res) => {
   });
 });
 
+app.post('/getcookies', (req, res) => {
+
+});
+
+app.get('/getcookies', (req, res) => {
+
+});
+
 app.listen(8080, () => {
   console.log("App is listening to port 8080");
 });

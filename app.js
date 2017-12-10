@@ -1,8 +1,10 @@
 const express = require('express');
+const cookieParser = require('cookie-parser');
 var path = require('path');
 var request = require("request");
 
 const app = express();
+app.use(cookieParser());
 app.use('/public', express.static(path.join(__dirname, 'public')));
 
 app.set('view engine', 'ejs');
@@ -43,12 +45,13 @@ app.get('/authors', (req, res) => {
   });
 });
 
-app.post('/getcookies', (req, res) => {
-
+app.get('/setcookie/:name/:age', (req, res) => {
+	res.cookie('name', req.params.name)
+	res.cookie('age', req.params.age).send("Cookie Set: <br><a href='/getcookies'>View cookie</a>");
 });
 
 app.get('/getcookies', (req, res) => {
-
+	res.send("Name: " + req.cookies.name + "<br>Age: " + req.cookies.age);
 });
 
 app.listen(8080, () => {

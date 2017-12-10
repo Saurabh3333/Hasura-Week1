@@ -20,14 +20,23 @@ app.get('/image', (req, res) => {
 });
 
 app.get('/authors', (req, res) => {
-  var dataJSON1, dataJSON2;
   request('https://jsonplaceholder.typicode.com/users', function (error, response, body) {
   	if(!error && response.statusCode === 200) {
-  		  dataJSON1 = JSON.parse(body);
+				var dataJSON1 = JSON.parse(body);
 		  request('https://jsonplaceholder.typicode.com/posts', function (error, response, body) {
 		  	if(!error && response.statusCode === 200) {
-		  		dataJSON2 = JSON.parse(body);
-                res.render('authors', { data1: dataJSON1, data2: dataJSON2 });
+					var dataJSON2 = JSON.parse(body);
+					var s = new String();
+					for(var i = 0; i < dataJSON1.length; i++) {
+						var count = 0;
+						for(var j = 0; j < dataJSON2.length; j++) {
+							if(dataJSON2[j].userId === dataJSON1[i].id) {
+								count++;
+							}
+						}
+						s = s + "<li>" + dataJSON1[i].name + "has " + count + " posts.</li><br><br>";
+					}
+					res.render('authors', {s});
 		  	}
 		  });
   	}

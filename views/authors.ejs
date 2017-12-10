@@ -6,18 +6,12 @@
 </head>
 <body>
   <div class="ui container">
-	<ul type="1">
-		<% for(var i=0; i < data1.length; i++) { %>
-		    <li><%= data1.name %></li>
-		    <hr style="border-top: dotted 1px;">
-		   <% for(var j=0; j < data2.length; j++) { var c = 0; %>
-		     <% if(i.id === j.userId) { %>
-		       <% c++; %>
-		       <% } %>
-		     <% } %>
-		     <span><% c %></span>
-		<% } %>
-	</ul>
+			<hr style="border-top: dotted 1px;"><br><br>
+		</ul>
+		<ul type=1>
+		  <%- s %>
+		</ul>
+		<hr style="border-top: dotted 1px;">
   </div>
 </body>
 </html>

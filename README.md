@@ -20,7 +20,7 @@
 6. >'/getcookies'
 7. >'/deletecookies'
 8. >'/input'
-9. >'/robot.txt'
+9. >'/robots.txt'
 
 **Notes:**
 1. Use a browser supporting JavaScript.

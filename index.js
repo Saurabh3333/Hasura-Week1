@@ -63,12 +63,13 @@ app.get('/deletecookie', (req, res) => {
 });
 
 app.get('/input', (req, res) => {
-	res.render('input');
+	var value="";
+	res.render('input', {value});
 });
 
 app.post('/input', urlencodedParser, (req, res) => {
 	console.log("The entered value is " + req.body.value);
-	res.render('input');
+	res.render('input', {value: req.body.value});
 });
 
 app.listen(8080, () => {

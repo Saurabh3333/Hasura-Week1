@@ -5,6 +5,7 @@
     </head>
     <body>
         <div class="ui container"> <br><br><br><center>
+            <div><h3>Previous entered value: <% if(value!="") %> <%- value%></h3></div><br><br><br>
                 <form class="ui form" action="/input" method="POST">
                         <div class="field">
                           <input name="value" placeholder="Enter a value" type="text">

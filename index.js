@@ -17,6 +17,7 @@ app.get('/', (req, res) => {
 });
 
 app.get('/robots.txt', (rq, res) => {
+	res.statusCode = 403;
 	res.render('access-denied');
 });
 

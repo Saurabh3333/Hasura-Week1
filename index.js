@@ -16,6 +16,10 @@ app.get('/', (req, res) => {
    res.send("Hello World - Saurabh");
 });
 
+app.get('/robots.txt', (rq, res) => {
+	res.render('access-denied');
+});
+
 app.get('/html', (rq, res) => {
 res.render('home');
 });

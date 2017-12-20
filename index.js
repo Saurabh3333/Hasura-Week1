@@ -48,6 +48,10 @@ app.get('/authors', (req, res) => {
   });
 });
 
+app.get('/setcookie', (req, res) => {
+	res.send("Please use the format:   /setcookie/:name/:age");
+});
+
 app.get('/setcookie/:name/:age', (req, res) => {
 	res.cookie('name', req.params.name)
 	res.cookie('age', req.params.age).send("Cookie Set: <br><a href='/getcookies'>View cookie</a>");

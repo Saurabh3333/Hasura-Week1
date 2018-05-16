@@ -1,5 +1,7 @@
 # Hasura-Week1
 
+[![Greenkeeper badge](https://badges.greenkeeper.io/Saurabh3333/Hasura-Week1.svg)](https://greenkeeper.io/)
+
 **Requirements:**
 1. NPM >= 3.10.10
 2. Node >= 6.11.4
